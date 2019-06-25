@@ -1,0 +1,73 @@
+ * {
+  border: 1px black solid;
+}
+
+.bounds {
+      background-color:#ddd;
+      height :800px;
+    }
+
+.image-labels {
+  padding: 20px;
+  text-align: center;
+
+}
+
+.sec1 {
+  background: red;
+  color:white;
+
+
+}
+
+.sec2 {
+  background: yellow;
+  color:blue;
+
+}
+
+.sec3 {
+  background: blue;
+  color:white;
+  text-transform: uppercase
+}
+
+.sec1, .sec2, .sec3 {
+  padding: 20px;
+  text-align:center
+}
+
+.content {
+  min-width: 300px;
+  height: 100px;
+  margin: 5px;
+  padding: 20px;
+}
+
+.container {
+  height: 100px;
+  margin: 5px;
+  padding: 20px;
+}
+
+.alpha, .beta {
+  /* height: 100px; */
+  margin: 5px;
+  padding: 20px;
+  /* display: block; */
+  border-radius: 8px;
+}
+.alpha {
+  background-color: red;
+}
+
+.beta {
+  background-color: lightblue;
+}
+
+.gamma {
+  background-color: lightyellow;
+  margin: 3px;
+  padding: 3px;
+}
+

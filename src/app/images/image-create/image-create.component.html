@@ -1,0 +1,137 @@
+<!-- Reactive form -->
+
+<!-- ANGULAR MATERIAL LAYOUT - CARD COMPONENT -->
+
+<mat-card>
+
+<!-- ANGULAR MATERIAL BUTTONS/INDICATORS PROGRESS SPINNER -->
+
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<!-- FORM GROUP -->
+
+  <form [formGroup]="form" *ngIf="!isLoading" (submit)="onSaveImage()">
+
+     <div class="image-image" *ngIf="mode === 'edit'">
+      <img [src]="image.imagePath" alt="image.title">
+    </div>
+     <div class="image-image" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+      <img  [src]="imagePreview" alt="form.value.title">
+    </div>
+
+
+<!-- IMAGE PICKER BUTTON -->
+
+  <div>
+    <button type="button" (click)="filePicker.click()" mat-stroked-button>Pick Image</button>
+    <input #filePicker type="file" (change)="onImagePicked($event)">
+  </div>
+
+<!-- IMAGE PREVIEW IN FORM -->
+
+  <!-- <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+    <img  [src]="imagePreview" alt="form.value.title">
+  </div> -->
+
+<!-- A/M TEXT INPUT FIELD -->
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="title"
+      placeholder="Image Title">
+      <!-- A/M F/E VALIDATION Image TITLE FIELD -->
+     <mat-error *ngIf="form.get('title').invalid">Image title required</mat-error>
+  </mat-form-field>
+
+<!-- A/M description TEXTAREA FIELD -->
+
+  <mat-form-field>
+    <textarea
+      matInput
+      rows="4"
+      formControlName="description"
+      placeholder="Image description"></textarea>
+
+<!-- A/M F/E VALIDATION Image description FIELD -->
+    <mat-error *ngIf="form.get('description').invalid">Image description required</mat-error>
+
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="lat"
+      placeholder="Latitude">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="lng"
+      placeholder="Longitude">
+  </mat-form-field>
+
+
+<!-- A/M SUBMIT BUTTON -->
+
+  <button
+  mat-raised-button
+  color="primary"
+  type="submit">Save Image</button>
+  </form>
+
+
+</mat-card>
+
+<!--
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="address1"
+      placeholder="Address line 1">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="address2"
+      placeholder="Address line 2">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="city"
+      placeholder="City">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="state"
+      placeholder="State / Province">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="postcode"
+      placeholder="ZIP / Postal Code">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      formControlName="country"
+      placeholder="Country">
+  </mat-form-field> -->

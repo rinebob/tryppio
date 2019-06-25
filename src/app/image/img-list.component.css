@@ -1,0 +1,46 @@
+ * {
+  /* border: 1px black solid; */
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.pic img {
+
+  height: 100%;
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.alpha {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.beta {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.beta {
+  background-color: lightblue;
+}
+
+.gamma {
+  background-color: lightyellow;
+  border-radius: 8px;
+
+}
+
+.gamma, .delta {
+   margin: 3px;
+  padding: 3px;
+}
+
+mat-paginator {
+  margin-top: 1rem;
+}
+
+

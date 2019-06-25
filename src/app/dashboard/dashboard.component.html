@@ -1,0 +1,91 @@
+
+<mat-toolbar *ngIf="userIsAuthenticated" color="primary">
+  <span>
+    <a routerLink="/images2"> Dashboard</a>
+  </span>
+  <span class="username" *ngIf="userIsAuthenticated">Welcome {{ username }}</span>
+  <span class='spacer'></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/profile" routerLinkActive="mat-accent">My Profile</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/images" routerLinkActive="mat-accent">My Images</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/create" routerLinkActive="mat-accent">Upload Image</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/story" routerLinkActive="mat-accent">My Stories</a>
+    </li>
+
+
+  </ul>
+</mat-toolbar>
+<!--
+<div>
+  <br>
+    <div class="container">
+        <div class="row">
+          <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row"  fxLayoutAlign="space-around end" class="content">
+          <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row"   class="content">
+            <div class="col-3 ml-5" fxLayoutAlign="space-around start">
+              <h1>Dashboard</h1>
+            </div>
+              <div class="blocks" fxLayoutAlign="space-around end">
+                <button button="submit" mat-raised-button color="primary" routerLink='/profile'>
+                      Profile
+                  </button>
+                  <button button="submit" mat-raised-button color="primary" routerLink='/images'>
+                      View Images
+                  </button>
+                  <button button="submit" mat-raised-button color="primary" routerLink='/create'>
+                      Upload Image
+                  </button>
+                  <button button="submit" mat-raised-button color="primary" routerLink='/story'>
+                      Create Story
+                  </button>
+              </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h5>Images</h5>
+          </mat-card-title>
+          <mat-card-content>
+              <div class="example-container mat-elevation-z8">
+                  <mat-table #table [dataSource]="dataSource">
+                  <ng-container matColumnDef="date_posted">
+                    <mat-header-cell *matHeaderCellDef> Date Posted </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date_posted  | date: 'd/M/y'}} </mat-cell>
+                  </ng-container>
+                    <ng-container matColumnDef="title">
+                      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="category">
+                      <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="delete">
+                      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <a
+                            type="button">
+                          <mat-icon class="icon">delete</mat-icon>
+                        </a>
+                      </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </mat-table>
+                </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div> -->

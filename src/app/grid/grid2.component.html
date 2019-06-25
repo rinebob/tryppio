@@ -1,0 +1,53 @@
+
+    <div class="containerX">
+      <div *ngFor="let _ of [1,2,3,4,5,6]" fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="space-evenly">
+        <div class="beta" fxFlex="0 1 calc(33% - 32px)">card 1</div>
+        <div class="beta" fxFlex="0 1 calc(67% - 32px)" gdAreas="header header | side content | footer footer" gdGap="16px" gdRows="auto auto auto" fxLayout="row wrap">
+          <div class="gamma" gdArea="header" fxFlex="100%">
+            Header
+          </div>
+          <div class="gamma" gdArea="side" fxFlex="10%">
+            Side
+          </div>
+          <div class="gamma" gdArea="content" fxFlex="auto">
+            Content
+          </div>
+          <div class="gamma" gdArea="footer" fxFlex="100%">
+            Footer
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+<div class="container">
+	<div *ngFor="let image of images" fxLayout="row" fxLayoutAlign="start">
+
+	<div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="space-evenly">
+		<div class="beta" fxFlex="33">
+			<img class="image-thumb" [src]="image.imagePath" alt="image.title">
+		</div>
+		<div class="beta" fxFlex="50" gdAreas="header header | side content | footer footer" gdGap="16px" gdRows="auto auto auto" fxLayout="row wrap">
+			<div class="gamma" gdArea="header" fxFlex="100%">
+				Title: {{ image.title }}
+			</div>
+			<div class="gamma" gdArea="content" fxFlex="auto">
+				Description: {{image.description}}
+			</div>
+			<div class="gamma" gdArea="footer" fxFlex="100%">
+				Latitude: {{image.lat}}
+			</div>
+			<div class="gamma" gdArea="footer" fxFlex="100%">
+				Longitude: {{image.lng}}
+			</div>
+		</div>
+
+	</div>
+	</div>
+
+
+
+
+</div>
+

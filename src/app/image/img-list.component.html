@@ -1,0 +1,59 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+    <div class="containerX" *ngIf="images.length > 0 && !isLoading">
+      <div *ngFor="let image of images" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start">
+        <!-- <mat-card> -->
+        <div class="alpha beta pic" fxFlex="0 1 calc(25% - 10px)">
+          <img [src]="image.imagePath" alt="image.title">
+        </div>
+        <div class="beta" fxFlex="0 1 calc(60% - 10px)"  fxLayout="row wrap">
+          <div class="delta" fxFlex="0 0 15%">
+            Title:
+          </div>
+          <div class="gamma" fxFlex="2 1 80%">
+            {{ image.title }}
+          </div>
+          <div class="delta" fxFlex="0 0 20%">
+            Description:
+          </div>
+          <div class="gamma" fxFlex="2 1 75%">
+            {{ image.description }}
+          </div>
+
+          <div fxFlex="0 1 calc(100% - 10px)"  fxLayout="row wrap">
+            <div class="delta" fxFlex="0 1 10%">
+              Lat:
+            </div>
+            <div class="gamma" fxFlex="35%">
+              {{ image.lat }}
+            </div>
+            <div class="delta" fxFlex="0 1 10%">
+              Long:
+            </div>
+            <div class="gamma" fxFlex="35%">
+              {{ image.lng }}
+            </div>
+          </div>
+        </div>
+
+        <div class="beta" fxFlex="0 1 calc(10% - 10px)"  fxLayout="column" fxFlexAlign="center" *ngIf="userIsAuthenticated && userId === image.creator">
+           <div class="gamma" fxFlex="100%">
+              {{ image.creator }}
+            </div>
+        <!-- <div class="beta" fxFlex="0 1 calc(10% - 10px)"  fxLayout="column" fxFlexAlign="center" > -->
+          <a mat-button color="primary" [routerLink]="['/edit/', image._id]">EDIT</a>
+          <button mat-button color="warn" (click)="onDelete(image._id)">DELETE</button>
+        </div>
+    <!-- </mat-card> -->
+  </div>
+</div>
+
+    <mat-paginator
+
+  *ngIf="images.length > 0"
+  [length]="totalImages"
+  [pageSize]="imagesPerPage"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onChangedPage($event)">
+
+</mat-paginator>
+

@@ -1,0 +1,120 @@
+
+
+
+<agm-map
+[latitude]="lat"
+[longitude]="lng"
+[mapTypeId]="mapTypeId"
+[scaleControl]="scaleControl"
+[zoomControl]="zoomControl"
+[mapTypeControl]="mapTypeControl"
+[panControl]="panControl"
+[rotateControl]="rotateControl"
+[fullscreenControl]="fullscreenControl"
+(mapClick)="mapClicked($event)"
+
+
+
+>
+
+
+
+  <agm-marker
+  *ngFor="let image of images; let i = index"
+  (markerClick)="markerClicked(image, i)"
+  [iconUrl]="this.iconUrl"
+  [latitude]="image.lat"
+  [longitude]="image.lng"
+  [markerDraggable]="image.draggable"
+  (dragEnd="markerDragEnd(image, $event)")>
+
+<agm-snazzy-info-window
+
+
+  [maxHeight]="maxHeight"
+  [maxWidth]="maxWidth"
+  [openOnMarkerClick]="openOnMarkerClick"
+  [closeWhenOthersOpen]="closeWhenOthersOpen"
+  [closeOnMapClick]="closeOnMapClick"
+  [showCloseButton]="showCloseButton"
+  [panOnOpen]="panOnOpen"
+  [pointer]="pointer"
+  [placement]="placement">
+
+
+  <ng-template>
+
+
+    <div class="si-float-wrapper rb-wrapper">
+      <div class="si-wrapper-top">
+        <div class="si-shadow-wrapper-top">
+          <div class="si-shadow-frame"></div>
+          <div class="si-shadow-pointer-top">
+            <div class="si-shadow-inner-pointer-top"></div>
+          </div>
+          <div class="si-shadow-pointer-top">
+            <div class="si-shadow-inner-pointer-top"></div>
+          </div>
+        </div>
+        <div class="si-content-wrapper">
+            <button class="si-close-button"></button>
+            <div class="si-content">
+              <h3>{{image.title}}</h3>
+              <p>{{image.description}}</p>
+              <p><img [src]="image.imagePath" alt="image.title"></p>
+               <p> lat: {{image.lat}} | long: {{image.lng}}</p>
+            </div>
+        </div>
+        <div class="si-pointer-border-top"></div>
+        <div class="si-pointer-bg-top"></div>
+      </div>
+    </div>
+<!--
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{image.title}}</mat-card-title>
+        <mat-card-subtitle>{{image.description}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="image.imagePath">
+      <mat-card-content>
+        <p>
+        {{image.description}}
+        </p>
+        <p>
+        lat: {{image.lat}} | long: {{image.lng}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+        <button mat-button>MESSAGE</button>
+      </mat-card-actions>
+    </mat-card>
+ -->
+
+  </ng-template>
+</agm-snazzy-info-window>
+<!--
+
+   <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
+      <ng-template>
+
+
+
+
+    </ng-template>
+  </agm-snazzy-info-window> -->
+  </agm-marker>
+</agm-map>
+
+<!-- <div class='app-main-map-container-inner sebm-google-map-container'>
+    <div class='app-main-map-content'>
+      <ng-content></ng-content>
+    </div>
+</div> -->
+<!-- <div class='agm-map-container-inner sebm-google-map-container'>
+    <div class='agm-map-content'>
+      <ng-content></ng-content>
+    </div>
+</div> -->
