@@ -1,4 +1,4 @@
-import { UserData } from './../auth/user-data.model';
+import { UserData } from '../auth/user-data.model';
 import { Image } from './image.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';

@@ -159,6 +159,7 @@ export class ImageCreateComponent implements OnInit, OnDestroy {
 
       // tslint:disable-next-line:max-line-length
       this.imagesService.addImage(this.form.value.title, this.form.value.description, this.form.value.image, this.form.value.lat, this.form.value.lng);
+
       // tslint:disable-next-line:max-line-length
       console.log('242 i-c.c.ts onSaveImage addImage.  this.form.value.image = ', this.form.value.image )
 
