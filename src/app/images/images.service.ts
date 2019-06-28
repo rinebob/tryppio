@@ -152,7 +152,8 @@ export class ImagesService {
   //  CREATE image IN DATABASE
   // tslint:disable-next-line:max-line-length
   // addImage(title: string, description: string, image: File, address1: string, address2: string, city: string, state: string, postcode: string, country: string, lat: number, lng: number) {
-  addImage(title: string, description: string, image: File, lat: number, lng: number) {
+//   addImage(title: string, description: string, image: File, lat: number, lng: number) {
+  addImage(title: string, description: string, image: File, lat: string, lng: string) {
 
     // console.log('300 image.s.ts title, desc, image = ', title, description, image, lat, lng );
 

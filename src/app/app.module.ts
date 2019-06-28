@@ -1,32 +1,27 @@
-
-import { ImagesModule } from './images/images.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { MatToolbar } from '@angular/material';
-import { AngularMaterialModule } from './angular-material.module';
-
-// Google Maps API Module
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window/snazzy-info-window.module';
-
-
 import { MatGridListModule } from '@angular/material/grid-list';
+import { AngularMaterialModule } from './angular-material.module';
 
+
+import { AppRoutingModule } from './app-routing.module';
+import { ImagesModule } from './images/images.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
 import { ProfileComponent } from './profile/profile.component';
 import { StoryComponent } from './story/story.component';
 import { GridComponent } from './grid/grid.component';
 import { ErrorComponent } from './error/error.component';
 import { MainMapComponent } from './main-map/main-map.component';
-
 import { ImgListComponent } from './image/img-list.component';
 import { ImgList2Component } from './image/img-list2.component';
+import { SandboxComponent } from './z_sandbox/sandbox.component';
 
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ErrorInterceptor } from './error-interceptor';
@@ -34,6 +29,7 @@ import { ErrorInterceptor } from './error-interceptor';
 // from auth0 tutorial
 // https://auth0.com/blog/creating-beautiful-apps-with-angular-material/
 import { FlexLayoutModule } from '@angular/flex-layout';
+// see also https://blog.angularindepth.com/angular-flex-layout-flexbox-and-grid-layout-for-angular-component-6e7c24457b63
 
 
 @NgModule({
@@ -48,7 +44,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     StoryComponent,
     GridComponent,
     ImgListComponent,
-    ImgList2Component
+    ImgList2Component,
+    SandboxComponent,
   ],
 
   imports: [
