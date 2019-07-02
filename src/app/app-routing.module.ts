@@ -16,7 +16,7 @@ import { GridComponent } from './grid/grid.component';
 
 const routes: Routes = [
 { path: '', component: MainMapComponent },
-{ path: 'dashboard', component: ImageListComponent },
+{ path: 'dashboard', component: DashboardComponent },
 { path: 'images', component: ImageListComponent },
 { path: 'profile', component: ProfileComponent },
 { path: 'story', component: StoryComponent },

@@ -21,7 +21,7 @@ import { ErrorComponent } from './error/error.component';
 import { MainMapComponent } from './main-map/main-map.component';
 import { ImgListComponent } from './image/img-list.component';
 import { ImgList2Component } from './image/img-list2.component';
-import { SandboxComponent } from './z_sandbox/sandbox.component';
+// import { SandboxComponent } from './z_sandbox/sandbox.component';
 
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ErrorInterceptor } from './error-interceptor';
@@ -45,7 +45,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     GridComponent,
     ImgListComponent,
     ImgList2Component,
-    SandboxComponent,
+    // SandboxComponent,
   ],
 
   imports: [
