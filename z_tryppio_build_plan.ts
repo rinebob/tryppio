@@ -46,15 +46,16 @@ import { map } from 'rxjs/operators';
 //     story*
 //     z_sandbox
 
-// * created only - no functionality
+// star = created only - no functionality
 
-// ****************************************************
-// ****************************************************
-// ****************************************************
+// ====================================================
+// ====================================================
+// ====================================================
 // EXISTING FUNCTIONALITY
-// ****************************************************
-// ****************************************************
-// ****************************************************
+// ====================================================
+// ====================================================
+// ====================================================
+
 
 // ====================================================
 // AUTH MODULE - SIGNUP / LOGIN
@@ -198,58 +199,197 @@ import { map } from 'rxjs/operators';
 
 
 
-// ****************************************************
-// ****************************************************
-// ****************************************************
+// ====================================================
+// ====================================================
+// ====================================================
 //        STORY BOARDS - MVP ONLY
-// ****************************************************
-// ****************************************************
-// ****************************************************
+// ====================================================
+// ====================================================
+// ====================================================
 
-when going to URL www.tryppio.com
-
+/*
+user navigates to URL www.tryppio.com
+----------------
 user is presented with:
+----------------
+MENU BAR COMPONENT at top of screen
+GOOGLE MAP COMPONENT in main area
+IMAGE LIST COMPONENT in right sidebar
 
-menu bar at top with options:
-Upload
-View
-Edit
-Locate
+MENU BAR COMPONENT options:
+Upload - opens image picker.  when image(s) selected, navigate to VIEW IMAGE COMPONENT
+View - navigate to VIEW IMAGE COMPONENT
+Edit - navigate to EDIT IMAGE COMPONENT
+Locate - navigate to LOCATE IMAGE COMPONENT
 
-Google map in main area:
+GOOGLE MAP COMPONENT in main area:
 centered on location:
 showing image icons at correct location for each image
 
-image list in right sidebar
+IMAGE LIST COMPONENT in right sidebar:
+displays collection of images as prepared by ngOnInit or user interaction with filter
+collection consists of vertical list of material cards, one card per image with subset of associated data
 
+----------------
 possible user actions:
-click on menu option:
+----------------
+click on MENU option:
 
-upload
-view
-edit
-locate
+UPLOAD
+VIEW
+EDIT
+LOCATE
 
-manipulate map
+- manipulate GOOGLE MAP display using map controls
 zoom in/out
 change map type
 pan
-hover over icon to view image card
-click on icon to open image card
+etc.
 
-use filter field to limit displayed images and cards
-hover over image list record to animate corresponding map marker
-click on image in list to pop open corresponding image card in map
+- hover over icon to view IMAGE CARD COMPONENT
+- click on icon to open IMAGE CARD COMPONENT
+
+- use filter field to limit displayed images
+- hover over image list record to animate corresponding map marker
+- click on image in list to pop open corresponding image card in map
+
+TASKS
+x Create project
+x create menu bar component
+x create main-map component shell
+create google map child-component shell
+create image list child-component shell
+create view-main component shell
+create edit image child-comonent shell
+create locate image child-component shell
+
+Create clickable prototype
+enable navigation via menu bar
+	- open image picker then view-main component
+	- open view-main image component
+	- open edit child-component
+	- open locate child-component
+
+PROJECT APP DIRECTORY/COMPONENT STRUCTURE
+src
+	app
+		image-main component
+			map child component
+			edit child component
+			locate child component
+		view-main component
+			image view component
+			image thumb component
 
 
 
-// ****************************************************
-// ****************************************************
-// ****************************************************
+
+*/
+
+// ====================================================
+// commands to generate components using angular cli:
+// ====================================================
+// (wouldn't work without skip import option)
+ng g c map-main --skip-import
+ng g c view-main --skip-import
+ng g c map-main/map --skip-import
+ng g c map-main/edit-image --skip-import
+ng g c map-main/locate-image --skip-import
+ng g c view-main/view-image --skip-import
+ng g c view-main/view-thumbs --skip-import
+
+// ====================================================
+// index.html
+// ====================================================
+// add code to index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tryppio</title>
+	<base href="/">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Tryppio - Social Network for Travelers">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" >
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="assets/styles.css" rel="stylesheet" />
+</head>
+<body>
+	
+	<main class="container">
+		<app-root>
+			Loading...
+		</app-root>
+		<br /><br />
+	</main>
+
+
+<script src="https://localhost:3000/node_modules/snazzy-info-window/dist/snazzy-info-window.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</body>
+</html>
+
+// ====================================================
+// app.component.html
+// ====================================================
+// add tags for header component and router-outlet
+
+<app-header></app-header>
+<main>
+	<router-outlet></router-outlet>
+</main>
+
+// ====================================================
+// app.module.ts
+// ====================================================
+// register new components
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { MapMainComponent } from './map-main/map-main.component';
+import { MapComponent } from './map-main/map/map.component';
+import { EditImageComponent } from './map-main/edit-image/edit-image.component';
+import { LocateImageComponent } from './map-main/locate-image/locate-image.component';
+import { ViewImageComponent } from './view-main/view-image/view-image.component';
+import { ViewThumbsComponent } from './view-main/view-thumbs/view-thumbs.component';
+
+@NgModule({
+	declarations: [
+		AppComponent,
+		MapMainComponent,
+		MapComponent,
+		EditImageComponent,
+		LocateImageComponent,
+		ViewImageComponent,
+		ViewThumbsComponent
+	],
+	imports: [
+		BrowserModule,
+
+	],
+	bootstrap: [ AppComponent ]
+
+})
+
+export class AppModule { }
+
+
+
+
+
+// ====================================================
+// ====================================================
+// ====================================================
 //        NEW FUNCTIONALITY
-// ****************************************************
-// ****************************************************
-// ****************************************************
+// ====================================================
+// ====================================================
+// ====================================================
 
 
 // ====================================================

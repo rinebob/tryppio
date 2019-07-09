@@ -1,5 +1,39 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module'
+import { AppComponent } from './app.component';
+import { MapMainComponent } from './map-main/map-main.component';
+import { MapComponent } from './map-main/map/map.component';
+import { EditImageComponent } from './map-main/edit-image/edit-image.component';
+import { LocateImageComponent } from './map-main/locate-image/locate-image.component';
+import { ViewImageComponent } from './view-main/view-image/view-image.component';
+import { ViewThumbsComponent } from './view-main/view-thumbs/view-thumbs.component';
+
+@NgModule({
+	declarations: [
+		AppComponent,
+		MapMainComponent,
+		MapComponent,
+		EditImageComponent,
+		LocateImageComponent,
+		ViewImageComponent,
+		ViewThumbsComponent
+	],
+	imports: [
+		BrowserModule,
+		HttpClientModule,
+		AppRoutingModule,
+	],
+	bootstrap: [ AppComponent ]
+
+})
+
+export class AppModule { }
+
+
+// remaining code from original app.module.ts:
+/*
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
@@ -79,3 +113,5 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   entryComponents: [ErrorComponent]
 })
 export class AppModule { }
+
+*/
